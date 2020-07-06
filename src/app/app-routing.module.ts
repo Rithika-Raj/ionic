@@ -1,22 +1,33 @@
+import { AuthGuardService } from './services/auth-guard.service';
 import { NgModule } from '@angular/core';
-import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-
+import { Routes, RouterModule } from '@angular/router';
+ 
 const routes: Routes = [
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: 'login', loadChildren: './pages/login/login.module#LoginPageModule' },
+  {
+    path: 'inside',
+    loadChildren: './pages/inside/inside.module#InsidePageModule',
+    canActivate: [AuthGuardService]
+  },
+  {
+    path: 'add-song',
+    loadChildren: () => import('./pages/add-song/add-song.module').then( m => m.AddSongPageModule)
+  },
+  {
+    path: 'edit-song/:id',
+    loadChildren: () => import('./pages/edit-song/edit-song.module').then( m => m.EditSongPageModule)
+  },
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
-  },
-  {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
+    loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
   },
 ];
-
+ 
 @NgModule({
-  imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
-  ],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
+
