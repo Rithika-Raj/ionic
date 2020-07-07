@@ -5,7 +5,7 @@
   "homepage": "https://ionicframework.com/",
   "scripts": {
     "ng": "ng",
-    "start": "node ./api/src/server.js",
+    "start": "node ./src/api/src/server.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
