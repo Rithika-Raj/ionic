@@ -33,10 +33,12 @@ app.use(passport.initialize());
 var passportMiddleware = require('./middleware/passport');
 passport.use(passportMiddleware);
  
+
 // Demo Route (GET http://localhost:5000)
 app.get('/', function(req, res) {
   return res.send('Hello! The API is at http://localhsot:' + port + '/api');
 });
+
 
 var routes = require('./routes');
 app.use('/api', routes);
