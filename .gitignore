@@ -29,6 +29,4 @@ npm-debug.log*
 /plugins
 src/api/node_modules
 api/node_modules/
-
-debug.log
-debug.log
+src/node_modules/
