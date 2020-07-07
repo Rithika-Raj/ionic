@@ -35,7 +35,7 @@ passport.use(passportMiddleware);
  
 // Demo Route (GET http://localhost:5000)
 app.get('/', function(req, res) {
-  return res.send('Hello! The API is at http://127.0.0.1:' + port + '/api');
+  return res.send('Hello! The API is at http://localhsot:' + port + '/api');
 });
 
 var routes = require('./routes');
@@ -57,4 +57,4 @@ connection.on('error', (err) => {
 
 // Start the server
 app.listen(port);
-console.log('There will be dragons: http://127.0.0.1' + port);
+console.log('There will be dragons: http://localhost:' + port);
