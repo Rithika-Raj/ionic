@@ -57,6 +57,9 @@ connection.on('error', (err) => {
 });
 
 
+var distDir=__dirname +"/dist/";
+app.use(express.static(distDir));
+
 
 // viewed at based directory http://localhost:8080/
 app.get('/', function (req, res) {
