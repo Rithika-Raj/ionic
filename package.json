@@ -7,6 +7,7 @@
     "ng": "ng",
     "frontend": "cd frontend && npm start",
     "api": "cd src && nodemon server.js",
+    "postinstall":"@ionic/app-scripts ^3.2.4",
     "start": "node src/server.js",
     "build": "ng build",
     "test": "ng test",
@@ -71,7 +72,7 @@
     "zone.js": "~0.10.2"
     
   },
-  "postinstall":{"@ionic/app-scripts": "^3.2.4"},
+  
   "devDependencies": {},
   "description": "An Ionic project",
   "cordova": {
