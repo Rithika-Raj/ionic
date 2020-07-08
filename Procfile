@@ -1,1 +1,1 @@
-web: npm start && ionic serve --port $PORT
+web: npm start && ionic serve $PORT

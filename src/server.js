@@ -55,6 +55,17 @@ connection.on('error', (err) => {
     process.exit();
 });
 
+
+
+// viewed at based directory http://localhost:8080/
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname + 'src/index.html'));
+});
+
+// add other routes below
+app.get('/login', function (req, res) {
+  res.sendFile(path.join(__dirname + 'src/app/pages/login.page.html'));
+});
 // Start the server
 app.listen(port);
 console.log('There will be dragons: http://localhost:' + port);
