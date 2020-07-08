@@ -836,7 +836,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var environment = {
       production: false,
-      url: 'http://127.0.0.1:5000'
+      url: 'http://localhost:5000'
     };
     /*
      * For easier debugging in development mode, you can import the following file
@@ -909,7 +909,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
   /***/
   function _(module, exports, __webpack_require__) {
     module.exports = __webpack_require__(
-    /*! C:\Users\Rithu\ionic login\devdacticAuth\devdacticauth\src\main.ts */
+    /*! C:\Users\Rithu\ionic login\devdacticAuth\devdacticAuth\src\main.ts */
     "./src/main.ts");
     /***/
   }

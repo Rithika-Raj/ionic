@@ -817,7 +817,7 @@ __webpack_require__.r(__webpack_exports__);
 // The list of file replacements can be found in `angular.json`.
 const environment = {
     production: false,
-    url: 'http://127.0.0.1:5000'
+    url: 'http://localhost:5000'
 };
 /*
  * For easier debugging in development mode, you can import the following file
@@ -864,7 +864,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Rithu\ionic login\devdacticAuth\devdacticauth\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Users\Rithu\ionic login\devdacticAuth\devdacticAuth\src\main.ts */"./src/main.ts");
 
 
 /***/ })
