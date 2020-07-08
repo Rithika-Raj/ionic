@@ -7,9 +7,8 @@
     "ng": "ng",
     "frontend": "cd frontend && npm start",
     "api": "cd src && nodemon server.js",
-    "postinstall":"@ionic/app-scripts ^3.2.4",
     "start": "node src/server.js",
-    "build": "ng build",
+    "heroku-postbuild": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
