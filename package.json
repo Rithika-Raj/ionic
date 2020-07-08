@@ -6,7 +6,7 @@
   "scripts": {
     "ng": "ng",
     "frontend": "cd frontend && npm start",
-    "api": "cd api && nodemon server.js",
+    "api": "cd src && nodemon server.js",
     
     "build": "ng build",
     "test": "ng test",
