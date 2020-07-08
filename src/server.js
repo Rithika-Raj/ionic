@@ -38,6 +38,7 @@ app.get('/', function(req, res) {
   return res.send('Hello! The API is at http://localhost:' + port + '/api');
 });
 
+app.use(express.static('www')); 
 var routes = require('./routes');
 app.use('/api', routes);
  
@@ -66,6 +67,7 @@ app.get('/', function (req, res) {
 app.get('/login', function (req, res) {
   res.sendFile(path.join(__dirname + 'src/app/pages/login.page.html'));
 });
+
 // Start the server
 app.listen(port);
 console.log('There will be dragons: http://localhost:' + port);
