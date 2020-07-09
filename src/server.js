@@ -32,7 +32,7 @@ app.use(bodyParser.json());
 app.use(passport.initialize());
 var passportMiddleware = require('./middleware/passport');
 passport.use(passportMiddleware);
- 
+
 // Demo Route (GET http://localhost:5000)
 app.get('/', function(req, res) {
   //res.sendFile(path.join(__dirname + 'src/index.html'));
