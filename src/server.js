@@ -57,14 +57,14 @@ connection.on('error', (err) => {
 });
 
 
-var distDir=__dirname +"/dist/";
-app.use(express.static(distDir));
+//var distDir=__dirname +"/dist/";
+//app.use(express.static(distDir));
 
 
 // viewed at based directory http://localhost:8080/
-app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname + 'src/index.html'));
-});
+//app.get('/', function (req, res) {
+  //res.sendFile(path.join(__dirname + 'src/index.html'));
+//});
 
 // Start the server
 app.listen(port);
