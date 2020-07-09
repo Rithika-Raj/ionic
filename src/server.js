@@ -22,8 +22,6 @@ app.use(function(req, res, next)
 });
 app.use(cors());
  
-
-
 // get our request parameters
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -34,9 +32,9 @@ var passportMiddleware = require('./middleware/passport');
 passport.use(passportMiddleware);
  
 // Demo Route (GET http://localhost:5000)
-app.get('/', function(req, res) {
-  return res.send('Hello! The API is at http://localhost:' + port + '/api');
-});
+//app.get('/', function(req, res) {
+//  return res.send('Hello! The API is at http://localhost:' + port + '/api');
+//});
 
 //app.use(express.static('www')); 
 var routes = require('./routes');
