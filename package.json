@@ -8,7 +8,7 @@
     "frontend": "cd frontend && npm start",
     "api": "cd src && nodemon server.js",
     "start": "node src/server.js",
-    "heroku-postbuild": "ng build --output-path dist",
+    "heroku-postbuild": "npm run ionic build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
