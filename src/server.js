@@ -43,7 +43,7 @@ var routes = require('./routes');
 app.use('/api', routes);
  
 mongoose.connect(config.db, { useNewUrlParser: true , useCreateIndex: true});
- 
+
 const connection = mongoose.connection;
 
 //192.168.225.203
@@ -62,9 +62,9 @@ connection.on('error', (err) => {
 
 
 // viewed at based directory http://localhost:8080/
-//app.get('/', function (req, res) {
-  //res.sendFile(path.join(__dirname + 'src/index.html'));
-//});
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname + 'src/index.html'));
+});
 
 // Start the server
 app.listen(port);
