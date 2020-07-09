@@ -5,8 +5,7 @@
   "homepage": "https://ionicframework.com/",
   "scripts": {
     "ng": "ng",
-    "ionic:build": "ionic-app-scripts build",  
-    "ionic:serve": "ionic-app-scripts serve" ,
+    "ionic:serve": "ionic serve" ,
     "frontend": "cd frontend && npm start",
     "api": "cd src && nodemon server.js",
     "start": "node src/server.js",
