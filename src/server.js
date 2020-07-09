@@ -32,21 +32,16 @@ app.use(bodyParser.json());
 app.use(passport.initialize());
 var passportMiddleware = require('./middleware/passport');
 passport.use(passportMiddleware);
-
+ 
 // Demo Route (GET http://localhost:5000)
-app.get('/', function(req, res) {
-  //res.sendFile(path.join(__dirname + 'src/index.html'));
-  //return res.send('Hello! The API is at http://localhost:' + port + '/api');
-  res.sendFile(path.join(__dirname + 'src/app/pages/login.page.html'));
-  //this.router.navigate(['/index.html']);
-  //return res.send('src/index.html');
-});
+//app.get('/', function(req, res) {
+//  return res.send('Hello! The API is at http://localhost:' + port + '/api');
+//});
 
 //app.use(express.static('www')); 
 var routes = require('./routes');
 app.use('/api', routes);
-app.use(express.static(__dirname + '/frontend'));
-
+ 
 mongoose.connect(config.db, { useNewUrlParser: true , useCreateIndex: true});
  
 const connection = mongoose.connection;
@@ -62,19 +57,14 @@ connection.on('error', (err) => {
 });
 
 
-//var distDir=__dirname +"/dist/";
-//app.use(express.static(distDir));
+var distDir=__dirname +"/dist/";
+app.use(express.static(distDir));
 
 
 // viewed at based directory http://localhost:8080/
-//app.get('/', function (req, res) {
-  //res.sendFile(path.join(__dirname + 'src/index.html'));
-//});
-
-// add other routes below
-//app.get('/login', function (req, res) {
-  //res.sendFile(path.join(__dirname + 'src/app/pages/login.page.html'));
-//});
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname + 'src/index.html'));
+});
 
 // Start the server
 app.listen(port);
