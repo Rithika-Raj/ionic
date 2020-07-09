@@ -9,7 +9,6 @@
     "frontend": "cd frontend && npm start",
     "api": "cd src && nodemon server.js",
     "start": "node src/server.js",
-   
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
