@@ -7,12 +7,12 @@
     "ng": "ng",
     "serve": "ionic serve",
     "frontend": "cd frontend && index.html",
-    "api": "cd src && nodemon server.js",
+    "api": "cd src && nodemon server.js && index.html",
     "start": "node src/server.js",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "main": "app-routing.module.ts"
+    "main": "src/app-routing.module.ts"
   },
   "private": true,
   "dependencies": {
