@@ -35,7 +35,9 @@ passport.use(passportMiddleware);
  
 // Demo Route (GET http://localhost:5000)
 app.get('/', function(req, res) {
-  return res.send('Hello! The API is at http://localhost:' + port + '/api');
+  //res.sendFile(path.join(__dirname + 'src/index.html'));
+  //return res.send('Hello! The API is at http://localhost:' + port + '/api');
+  return res.send('src/index.html');
 });
 
 app.use(express.static('www')); 
