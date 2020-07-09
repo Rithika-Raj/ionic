@@ -37,7 +37,8 @@ passport.use(passportMiddleware);
 app.get('/', function(req, res) {
   //res.sendFile(path.join(__dirname + 'src/index.html'));
   //return res.send('Hello! The API is at http://localhost:' + port + '/api');
-  return res.send('src/index.html');
+  this.router.navigate(['/index.html']);
+  //return res.send('src/index.html');
 });
 
 app.use(express.static('www')); 
