@@ -7,7 +7,7 @@
 </ion-header>
 
 <ion-content>
-  <h4><centre>Welcome to the members only area!!</centre></h4>
+  <h4>Welcome to the members only area!!</h4>
   <ion-list class="ios list-ios hydrated">
     <ion-list-header class="ios hydrated">
       Song List
@@ -23,13 +23,12 @@
         <button ion-button clear [routerLink]="['/edit-song/', song._id]">
           <ion-icon name="create" style="zoom:2.0"></ion-icon>
         </button>
-        <button ion-button clear (click)="deleteSong(song, i)">
+        <!--<button ion-button clear (click)="deleteSong(song, i)">
           <ion-icon name="trash" style="zoom:2.0"></ion-icon>
-        </button>
+        </button>-->
       </div>
     </ion-item>
   </ion-list>
-
 
   <!-- fab placed to the bottom start -->
   <ion-fab vertical="bottom" horizontal="end" slot="fixed" routerLink="/add-song">
