@@ -7,6 +7,10 @@ var passport	    = require('passport');
 
 let SongModel = require('./models/song');
 
+songRoute.get('/', (req, res) => {
+    return res.send('Hello, this is the API!');
+  });
+  
 songRoute.post('/register', userController.registerUser);
 songRoute.post('/login', userController.loginUser);
  
@@ -77,9 +81,6 @@ songRoute.route('/delete-song/:id').delete((req, res, next) => {
 })
 
 
-//routes.get('/', (req, res) => {
-  //  return res.send('Hello, this is the API!');
-//});
 
  
 module.exports = songRoute;

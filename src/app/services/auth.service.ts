@@ -48,7 +48,8 @@ export class AuthService {
   }
  
   register(credentials) {
-    return this.http.post(`${this.httpOptions}/api/register`, credentials).pipe(
+
+    return this.http.post('/register', credentials,this.httpOptions).pipe(
       catchError(e => {
         this.showAlert(e.error.msg);
         throw new Error(e);
@@ -57,7 +58,7 @@ export class AuthService {
   }
  
   login(credentials) {
-    return this.http.post(`${this.httpOptions}/api/login`, credentials)
+    return this.http.post('/login', credentials,this.httpOptions)
       .pipe(
         tap(res => {
           this.storage.set(TOKEN_KEY, res['token']);
@@ -78,7 +79,7 @@ export class AuthService {
   }
  
   getSpecialData() {
-    return this.http.get(`${this.httpOptions}/api/special`).pipe(
+    return this.http.get(`${this.httpOptions}/special`).pipe(
       catchError(e => {
         let status = e.status;
         if (status === 401) {
