@@ -17,14 +17,14 @@ export class SongService {
   constructor(private http: HttpClient) { }
 
   addSong(song: Song): Observable<any> {
-    return this.http.post<Song>('http://localhost:3000/api/create-song', song, this.httpOptions)
+    return this.http.post<Song>('/api/create-song', song, this.httpOptions)
       .pipe(
         catchError(this.handleError<Song>('Add Song'))
       );
   }
 
   getSong(id): Observable<Song[]> {
-    return this.http.get<Song[]>('http://localhost:3000/api/get-song/' + id)
+    return this.http.get<Song[]>('/api/get-song/' + id)
       .pipe(
         tap(_ => console.log(`Song fetched: ${id}`)),
         catchError(this.handleError<Song[]>(`Get Song id=${id}`))
@@ -32,7 +32,7 @@ export class SongService {
   }
 
   getSongList(): Observable<Song[]> {
-    return this.http.get<Song[]>('http://localhost:3000/api')
+    return this.http.get<Song[]>('/api')
       .pipe(
         tap(songs => console.log('Songs fetched!')),
         catchError(this.handleError<Song[]>('Get Songs', []))
@@ -40,7 +40,7 @@ export class SongService {
   }
 
   updateSong(id, song: Song): Observable<any> {
-    return this.http.put('http://localhost:3000/api/update-song/' + id, song, this.httpOptions)
+    return this.http.put('/api/update-song/' + id, song, this.httpOptions)
       .pipe(
         tap(_ => console.log(`Song updated: ${id}`)),
         catchError(this.handleError<Song[]>('Update Song'))
@@ -48,7 +48,7 @@ export class SongService {
   }
 
   deleteSong(id): Observable<Song[]> {
-    return this.http.delete<Song[]>('http://localhost:3000/api/delete-song/' + id, this.httpOptions)
+    return this.http.delete<Song[]>('/api/delete-song/' + id, this.httpOptions)
       .pipe(
         tap(_ => console.log(`Song deleted: ${id}`)),
         catchError(this.handleError<Song[]>('Delete Song'))

@@ -1,69 +1,55 @@
-var express     = require('express');
+//var express     = require('express');
 var bodyParser  = require('body-parser');
 var passport	= require('passport');
-var mongoose    = require('mongoose');
-var config      = require('./config/config');
-var port        = process.env.PORT || 5000; 
+//var config      = require('./config/config');
+var port        = process.env.PORT || 3000; 
 var cors        = require('cors');
-
-var app = express();
-/* Manage CORS Access for ALL requests/responses */
-app.use(function(req, res, next)
-{
-   /* Allow access from any requesting client */
-   res.setHeader('Access-Control-Allow-Origin', '*');
-
-   /* Allow access for any of the following Http request types */
-   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, DELETE, PUT');
-
-   /* Set the Http request header */
-   res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type,Authorization');
-    next();
-});
-app.use(cors());
+let express = require('express'),
+  path = require('path'),
+  mongoose = require('mongoose'),
+  dataBaseConfig = require('./database/db'); //
+  app_path ='../www';
  
-// get our request parameters
-app.use(bodyParser.urlencoded({ extended: false }));
+// Connecting mongoDB
+mongoose.Promise = global.Promise;
+mongoose.connect(dataBaseConfig.db, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useFindAndModify: false
+}).then(() => {
+  console.log('Database connected sucessfully ')
+},
+  error => {
+    console.log('Could not connected to database : ' + error)
+  }
+)
+ 
+//const songRoute = require('./routes/song.route')
+const songRoute = require('./routes')
+
+const app = express();  //var app = express();
 app.use(bodyParser.json());
- 
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
+app.use(cors());
+
 // Use the passport package in our application
 app.use(passport.initialize());
 var passportMiddleware = require('./middleware/passport');
 passport.use(passportMiddleware);
  
-// Demo Route (GET http://localhost:5000)
-app.get('/', function(req, res) {
-  return res.send('Hello! The API is at http://localhost:' + port + '/api');
-});
+//var routes = require('./routes');
+//app.use('/api', routes);
 
-//app.use(express.static('www')); 
-var routes = require('./routes');
-app.use('/api', routes);
- 
-mongoose.connect(config.db, { useNewUrlParser: true , useCreateIndex: true});
+// RESTful API root
+app.use('/api', songRoute)
+app.use('/',express.static(path.join(__dirname,app_path)))
+app.get('*',(req,res)=>res.sendFile(path.join(__dirname,app_path + '/index.html')))
 
-const connection = mongoose.connection;
+const port = process.env.PORT || 3000;
 
-//192.168.225.203
-connection.once('open', () => {
-    console.log('MongoDB database connection established successfully!');
-});
- 
-connection.on('error', (err) => {
-    console.log("MongoDB connection error. Please make sure MongoDB is running. " + err);
-    process.exit();
-});
+app.listen(port, () => {
+  console.log('PORT Connected on: ' + port)
+})
 
-
-//var distDir=__dirname +"/dist/";
-//app.use(express.static(distDir));
-
-
-// viewed at based directory http://localhost:8080/
-app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname + 'src/index.html'));
-});
-
-// Start the server
-app.listen(port);
-console.log('There will be dragons: http://localhost:' + port);

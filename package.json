@@ -5,14 +5,12 @@
   "homepage": "https://ionicframework.com/",
   "scripts": {
     "ng": "ng",
-    "serve": "ionic serve",
-    "frontend": "cd frontend && index.html",
-    "api": "cd src && nodemon server.js && index.html",
     "start": "node src/server.js",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "main": "src/app-routing.module.ts"
+    "heroku-postbuild":"ng build --configuration=production",
+    "main": "src/app/app-routing.module.ts"
   },
   "private": true,
   "dependencies": {
@@ -42,14 +40,6 @@
     "bcrypt": "^5.0.0",
     "body-parser": "^1.19.0",
     "codelyzer": "^5.1.2",
-    "cordova-android": "8.1.0",
-    "cordova-plugin-device": "^2.0.2",
-    "cordova-plugin-ionic-keyboard": "^2.2.0",
-    "cordova-plugin-ionic-webview": "^4.2.1",
-    "cordova-plugin-splashscreen": "^5.0.2",
-    "cordova-plugin-statusbar": "^2.4.2",
-    "cordova-plugin-whitelist": "^1.3.3",
-    "cordova-sqlite-storage": "^5.0.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "jasmine-core": "~3.5.0",
@@ -65,14 +55,22 @@
     "passport-jwt": "^4.0.0",
     "protractor": "~5.4.3",
     "rxjs": "~6.5.1",
-    "socket.io": "^2.3.0",
     "ts-node": "~8.3.0",
     "tslib": "^1.10.0",
     "tslint": "~6.1.0",
     "typescript": "~3.8.3",
     "zone.js": "~0.10.2"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "cordova-android": "8.1.0",
+    "cordova-plugin-device": "^2.0.2",
+    "cordova-plugin-ionic-keyboard": "^2.2.0",
+    "cordova-plugin-ionic-webview": "^4.2.1",
+    "cordova-plugin-splashscreen": "^5.0.2",
+    "cordova-plugin-statusbar": "^2.4.2",
+    "cordova-plugin-whitelist": "^1.3.3",
+    "cordova-sqlite-storage": "^5.0.0"
+  },
   "description": "An Ionic project",
   "cordova": {
     "plugins": {
@@ -90,6 +88,9 @@
       "android"
     ]
   },
-  "main": "karma.conf.js",
-  "license": "ISC"
+  "engines": {
+    "node": "~12.18.0",
+    "npm": "~6.14.5"
+  }
+  
 }

@@ -1,6 +1,6 @@
 var User = require('../models/user');
 var jwt = require('jsonwebtoken');
-var config = require('../config/config');
+var config = require('../database/db');
  
 function createToken(user) {
     return jwt.sign({ id: user.id, email: user.email }, config.jwtSecret, {
