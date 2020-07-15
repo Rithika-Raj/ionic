@@ -2,7 +2,7 @@
 var bodyParser  = require('body-parser');
 var passport	= require('passport');
 //var config      = require('./config/config');
-var port        = process.env.PORT || 3000; 
+//var port        = process.env.PORT || 3000; 
 var cors        = require('cors');
 let express = require('express'),
   path = require('path'),

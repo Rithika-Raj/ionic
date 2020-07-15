@@ -12,4 +12,4 @@ let Song = new Schema({
   collection: 'songs'
 })
 
-module.exports = mongoose.model('Song', song)
+module.exports = mongoose.model('Song', Song);

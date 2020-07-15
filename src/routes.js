@@ -5,12 +5,12 @@ const songRoute = express.Router();
 var userController  = require('./controller/user-controller');
 var passport	    = require('passport');
 
-let SongModel = require('../models/song');
+let SongModel = require('./models/song');
 
-routes.post('/register', userController.registerUser);
-routes.post('/login', userController.loginUser);
+songRoute.post('/register', userController.registerUser);
+songRoute.post('/login', userController.loginUser);
  
-routes.get('/special', passport.authenticate('jwt', { session: false }), (req, res) => {
+songRoute.get('/special', passport.authenticate('jwt', { session: false }), (req, res) => {
     return res.json({ msg: `Hey ${req.user.email}! I open at the close.` });
 });
 
