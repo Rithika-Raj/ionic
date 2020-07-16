@@ -32,7 +32,7 @@ export class SongService {
   }
 
   getSongList(): Observable<Song[]> {
-    return this.http.get<Song[]>('/api/songlist')
+    return this.http.get<Song[]>('/api/songlist/')
       .pipe(
         tap(songs => console.log('Songs fetched!')),
         catchError(this.handleError<Song[]>('Get Songs', []))
