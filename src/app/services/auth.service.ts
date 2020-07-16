@@ -1,6 +1,6 @@
 import { Platform, AlertController } from '@ionic/angular';
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { Storage } from '@ionic/storage';
 import { environment } from '../../environments/environment';
@@ -8,19 +8,13 @@ import { tap, catchError } from 'rxjs/operators';
 import { BehaviorSubject } from 'rxjs';
  
 const TOKEN_KEY = 'access_token';
-
+ 
 @Injectable({
   providedIn: 'root'
 })
-
-
 export class AuthService {
-
-  httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-  };
  
-  //url = environment.url;
+  url = environment.url;
   user = null;
   authenticationState = new BehaviorSubject(false);
  
@@ -48,8 +42,7 @@ export class AuthService {
   }
  
   register(credentials) {
-
-    return this.http.post('/register', credentials,this.httpOptions).pipe(
+    return this.http.post(`${this.url}/api/register`, credentials).pipe(
       catchError(e => {
         this.showAlert(e.error.msg);
         throw new Error(e);
@@ -58,7 +51,7 @@ export class AuthService {
   }
  
   login(credentials) {
-    return this.http.post('/login', credentials,this.httpOptions)
+    return this.http.post(`${this.url}/api/login`, credentials)
       .pipe(
         tap(res => {
           this.storage.set(TOKEN_KEY, res['token']);
@@ -79,7 +72,7 @@ export class AuthService {
   }
  
   getSpecialData() {
-    return this.http.get(`${this.httpOptions}/special`).pipe(
+    return this.http.get(`${this.url}/api/special`).pipe(
       catchError(e => {
         let status = e.status;
         if (status === 401) {

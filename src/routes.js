@@ -7,14 +7,14 @@ var passport	    = require('passport');
 
 let SongModel = require('./models/song');
 
-songRoute.get('/', (req, res) => {
+songRoute.route('/').get((req, res) => {
     return res.send('Hello, this is the API!');
   });
   
-songRoute.post('/register', userController.registerUser);
-songRoute.post('/login', userController.loginUser);
+songRoute.route('/register').post(userController.registerUser);
+songRoute.route('/login').post(userController.loginUser);
  
-songRoute.get('/special', passport.authenticate('jwt', { session: false }), (req, res) => {
+songRoute.route('/special').get(passport.authenticate('jwt', { session: false }), (req, res) => {
     return res.json({ msg: `Hey ${req.user.email}! I open at the close.` });
 });
 
