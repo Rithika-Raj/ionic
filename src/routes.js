@@ -12,7 +12,18 @@ passport.use(passportMiddleware);
 
 let SongModel = require('./models/song');
 
-songRoute.route('/').get((req, res) => {
+SongModel.get('/', (req, res) => {
+  return res.send('Hello, this is the API!');
+});
+
+SongModel.post('/register', userController.registerUser);
+SongModel.post('/login', userController.loginUser);
+
+SongModel.get('/special', passport.authenticate('jwt', { session: false }), (req, res) => {
+  return res.json({ msg: `Hey ${req.user.email}! I open at the close.` });
+});
+
+/**songRoute.route('/').get((req, res) => {
     return res.send('Hello, this is the API!');
   });
   
@@ -22,7 +33,7 @@ songRoute.route('/login').post(userController.loginUser);
 songRoute.route('/special').get(passport.authenticate('jwt', { session: false }), (req, res) => {
     return res.json({ msg: `Hey ${req.user.email}! I open at the close.` });
 });
-
+**/
 // Add Song
 songRoute.route('/create-song').post((req, res, next) => {
   SongModel.create(req.body, (error, data) => {
