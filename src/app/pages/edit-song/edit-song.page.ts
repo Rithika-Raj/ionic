@@ -14,9 +14,9 @@ export class EditSongPage implements OnInit {
   id: any;
 
   constructor(
-    private songAPI: SongService,
-    private actRoute: ActivatedRoute,
-    private router: Router,
+    public songAPI: SongService,
+    public actRoute: ActivatedRoute,
+    public router: Router,
     public fb: FormBuilder
   ) {
     this.id = this.actRoute.snapshot.paramMap.get('id');

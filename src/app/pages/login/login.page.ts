@@ -11,7 +11,7 @@ export class LoginPage implements OnInit {
  
   credentialsForm: FormGroup;
  
-  constructor(private formBuilder: FormBuilder, private authService: AuthService) { }
+  constructor(public formBuilder: FormBuilder, public authService: AuthService) { }
  
   ngOnInit() {
     this.credentialsForm = this.formBuilder.group({
