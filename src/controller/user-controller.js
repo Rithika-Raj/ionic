@@ -4,7 +4,7 @@ var config = require('../database/db');
  
 function createToken(user) {
     return jwt.sign({ id: user.id, email: user.email }, config.jwtSecret, {
-        expiresIn: 200 // 86400 expires in 24 hours //testing here
+        expiresIn: 2000 // 86400 expires in 24 hours //testing here
       });
 }
  
