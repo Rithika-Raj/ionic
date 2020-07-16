@@ -43,6 +43,8 @@ passport.use(passportMiddleware);
 
 // RESTful API root
 app.use('/api', songRoute)
+app.use('/api', routes)
+
 app.use('/',express.static(path.join(__dirname,app_path)))
 app.get('*',(req,res)=>res.sendFile(path.join(__dirname,app_path + '/index.html')))
 

@@ -8,18 +8,18 @@ var passport	    = require('passport');
 app.use(passport.initialize());
 var passportMiddleware = require('./middleware/passport');
 passport.use(passportMiddleware);
- 
+routes = express.Router();
 
 let SongModel = require('./models/song');
 
-SongModel.get('/', (req, res) => {
+routes.get('/', (req, res) => {
   return res.send('Hello, this is the API!');
 });
 
-SongModel.post('/register', userController.registerUser);
-SongModel.post('/login', userController.loginUser);
+routes.post('/register', userController.registerUser);
+routes.post('/login', userController.loginUser);
 
-SongModel.get('/special', passport.authenticate('jwt', { session: false }), (req, res) => {
+routes.get('/special', passport.authenticate('jwt', { session: false }), (req, res) => {
   return res.json({ msg: `Hey ${req.user.email}! I open at the close.` });
 });
 
