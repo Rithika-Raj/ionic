@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  url:'https://iontestapp.herokuapp.com/home'
+  url:'https://iontestapp.herokuapp.com'
 };
 
 /*
