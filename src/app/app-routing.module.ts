@@ -6,10 +6,16 @@ const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', loadChildren: './pages/login/login.module#LoginPageModule' },
   {
-    path: 'inside',
-    loadChildren: './pages/inside/inside.module#InsidePageModule',
-    canActivate: [AuthGuardService]
+  path: 'home',
+  loadChildren: './pages/home/home.module#HomePageModule',
+  canActivate: [AuthGuardService]
   },
+  
+  //{
+    //path: 'inside',
+    //loadChildren: './pages/inside/inside.module#InsidePageModule',
+    //canActivate: [AuthGuardService]
+  //},
   {
     path: 'add-song',
     loadChildren: () => import('./pages/add-song/add-song.module').then( m => m.AddSongPageModule)

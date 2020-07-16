@@ -18,10 +18,10 @@ export class HomePage implements OnInit {
   data = '';
 
   constructor(
-    private songService: SongService,
-    private authService: AuthService,
-     private storage: Storage,
-      private toastController: ToastController
+    public songService: SongService,
+    public authService: AuthService,
+     public storage: Storage,
+      public toastController: ToastController
   ) {
   }
 
