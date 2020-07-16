@@ -46,7 +46,7 @@ songRoute.route('/create-song').post((req, res, next) => {
 });
 
 // Get all songs
-songRoute.route('/').get((req, res) => {
+songRoute.route('/songlist').get((req, res) => {
   SongModel.find((error, data) => {
     if (error) {
       return next(error)

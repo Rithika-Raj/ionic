@@ -18,7 +18,7 @@ export function jwtOptionsFactory(storage) {
     tokenGetter: () => {
       return storage.get('access_token');
     },
-    whitelistedDomains: ['localhost:5000']
+    whitelistedDomains: ['https://iontestapp.herokuapp.com']
   }
 }
  
