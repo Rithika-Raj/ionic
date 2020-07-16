@@ -4,6 +4,11 @@ const songRoute = express.Router();
 
 var userController  = require('./controller/user-controller');
 var passport	    = require('passport');
+// Use the passport package in our application
+app.use(passport.initialize());
+var passportMiddleware = require('./middleware/passport');
+passport.use(passportMiddleware);
+ 
 
 let SongModel = require('./models/song');
 
